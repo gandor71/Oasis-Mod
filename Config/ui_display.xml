@@ -1,0 +1,19 @@
+<OasisMod>
+
+<append xpath="/ui_display_info/item_display">
+
+<item_display_info display_type="clothingBlunt" display_group="groupAttire">
+			<display_entry name="AttributeLevel" tags="attIntellect" title_key="statShowIntellect" display_leading_plus="true" negative_preferred="true"/>
+			<display_entry name="dCraftingTime" title_key="statCraftingTime" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
+			<display_entry name="dPlayerExpGain" title_key="statShowPlayerExpGain" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dWalkRunSpeed" title_key="Walk and Speed" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
+			<display_entry name="dNoiseMultiplier" title_key="You get more noisy" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
+			<display_entry name="dErrection" title_key="You can no longer get an errection" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
+
+
+	<!--  		<display_entry name="dStaminaRegen" title_key="statStaminaRegen" display_type="Percent"/>  -->
+</item_display_info>
+
+</append>
+
+</OasisMod>

@@ -1,0 +1,178 @@
+<configs>
+
+	<set xpath="/items/item[contains(@name,'food')]/property[@name='Stacknumber']/@value">500</set>
+	<set xpath="/items/item[contains(@name,'ammo')]/property[@name='Stacknumber']/@value">1000</set>
+	<set xpath="/items/item[contains(@name,'drink')]/property[@name='Stacknumber']/@value">1000</set>
+	<set xpath="/items/item[contains(@name,'medical')]/property[@name='Stacknumber']/@value">200</set>
+	<set xpath="/items/item[contains(@name,'drug')]/property[@name='Stacknumber']/@value">200</set>
+	
+	<set xpath="/items/item[@name='ammoGasCan']/property[@name='Stacknumber']/@value">10000</set>
+	<set xpath="/items/item[@name='smallEngine']/property[@name='Stacknumber']/@value">100</set>
+	<set xpath="/items/item[@name='resourceTestosteroneExtract']/property[@name='Stacknumber']/@value">100</set>
+	<set xpath="/items/item[@name='resourceRepairKit']/property[@name='Stacknumber']/@value">1000</set>
+	<set xpath="/items/item[@name='resourceRadiator']/property[@name='Stacknumber']/@value">100</set>
+
+	<set xpath="/items/item[@name='resourceIronFragment']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceScrapLead']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceCrushedSand']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceOilShale']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourcePotassiumNitratePowder']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceCobblestones']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceCement']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceConcreteMix']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceWood']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceClayLump']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceSnowBall']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceScrapIron']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceForgedIron']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceForgedSteel']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceRockSmall']/property[@name='Stacknumber']/@value">24000</set>
+	<set xpath="/items/item[@name='resourceCoal']/property[@name='Stacknumber']/@value">24000</set>
+
+
+
+<append xpath="/items">
+
+<item name="Mjolner">
+	<property name="UnlockedBy" value="perkMiner69r"/>
+	<property name="Tags" value="axe,melee,light,tool,attStrength,perkMiner69r,perkMotherLode,perkTheHuntsman,canHaveCosmetic"/>
+	<property name="DisplayType" value="meleeRepairTool"/>
+	<property name="HoldType" value="32"/>
+	<property name="Meshfile" value="#Other/Items?Weapons/Melee/Axe/stone_axePrefab.prefab"/>
+	<property name="CustomIcon" value="meleeToolStoneAxe"/> <property name="CustomIconTint" value="3C4A8A"/>
+	<property name="TintColor" value="60,74,138"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="RepairTools" value="resourceRepairKit"/>
+	<property name="DegradationBreaksAfter" value="false"/>
+	<property name="SoundJammed" value="ItemNeedsRepair"/>
+	<property name="SoundDestroy" value="wooddestroy1"/>
+	<property name="Stacknumber" value="1"/>
+	<property name="SellableToTrader" value="false"/>
+	<property name="ShowQuality" value="true"/>
+	<property class="Action0">
+		<property name="Class" value="DynamicMelee"/>
+		<property name="Sphere" value=".15"/>
+		<property name="ToolCategory.Butcher" value="1" param1="1"/>
+		<property name="ToolCategory.harvestingTools" value="1" param1="1"/>
+                <property name="ToolCategory.Disassemble" value="1" param1=".01"/>
+		<property name="Delay" value="0.30"/>
+		<property name="Sound_start" value="swoosh"/>		
+	</property>
+	<property class="Action1"> <!-- UseAction -->
+		<property name="Class" value="Repair"/>
+		<property name="Delay" value="0.53"/> <!-- Repair actions still need the delay amount -->
+		<property name="Repair_amount" value="2000"/>
+		<property name="Upgrade_hit_offset" value="-5"/>
+		<property name="Sound_start" value="repair_block"/>
+		<property name="Allowed_upgrade_items" value="resourceWood,resourceClayLump,resourceSnowBall,resourceScrapIron,resourceForgedIron,resourceForgedSteel,resourceConcreteMix,resourceCobblestones,ironDoor1_v1,vaultDoor01,scrapHatch_v1,vaultHatch_v1,resourceYuccaFibers,resourceCloth,resourceScrapPolymers"/>
+		<property name="UsePowerAttackAnimation" value="false"/>
+
+	</property>
+
+	<effect_group name="Mjolner">
+		<passive_effect name="MaxRange" operation="base_set" value="3.0"/>
+		<passive_effect name="BlockRange" operation="base_set" value="15"/>
+
+
+		<passive_effect name="DegradationMax" operation="base_set" value="100" tags="perkMiner69r" />
+		<passive_effect name="DegradationMax" operation="perc_add" value="0,9,12,19,49,199" tier="1,2,3,4,5,6" tags="perkMiner69r"/> <!-- tier bonus -->
+		<passive_effect name="DegradationPerUse" operation="base_set" value="2" tags="perkMiner69r"/>
+
+
+		<passive_effect name="BlockDamage" operation="base_set" value="100"/>
+		<passive_effect name="BlockDamage" operation="perc_add" value="0,9,19,29,49,199" tier="1,2,3,4,5,6"/> <!-- tier bonus -->
+		<passive_effect name="HarvestCount" operation="base_set" value="1" /> <!-- oreWoodHarvest allHarvest allToolsHarvest oreWoodHarvest -->
+		<passive_effect name="HarvestCount" operation="perc_add" value="0,.5,1,1.5,3,4" tier="1,2,3,4,5,6" tags="butcherHarvest,salvageHarvest,oreWoodHarvest,allHarvest"/> <!-- tier bonus -->
+
+
+		
+		<passive_effect name="AttacksPerMinute" operation="base_set" value="140"/>
+		<passive_effect name="EntityDamage" operation="base_set" value="25"/>
+
+
+
+		<passive_effect name="StaminaLoss" operation="base_set" value="4" tags="primary"/>
+		<passive_effect name="ModSlots" operation="base_set" value="5"/>
+	</effect_group>
+
+	
+</item>
+
+
+<item name="vehicleJokeblimpPlaceable">
+	<property name="Extends" value="vehicleMinibikePlaceable"/>
+
+	<property name="Meshfile" value="Entities/Vehicles/jokeblimp_Prefab"/>
+	<property name="EconomicValue" value="300000"/>
+	<property class="Action1">
+		<property name="Vehicle" value="vehicleJokeblimp"/>
+		<property name="VehicleSize" value="5.5, 5.5, 10.5"/>
+	</property>
+	<effect_group name="Base Effects">
+		<passive_effect name="DegradationMax" operation="base_set" value="1500,3000" tier="1,6"/>
+	</effect_group>
+</item>
+
+
+
+<item name="solarCell">
+
+
+	<property name="UnlockedBy" value="perkAdvancedEngineering"/>
+	<property name="HoldType" value="45"/>
+	<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mglass"/>
+	<property name="Stacknumber" value="1"/>
+	<property name="Weight" value="10"/>
+	<property name="EconomicValue" value="4000"/>
+	<property name="Group" value="Resources"/>
+	<property name="SellableToTrader" value="false"/>
+	<property name="ShowQuality" value="true"/>
+	<property class="Attributes">
+		<property name="DegradationMax" value="1000,6000"/>
+	</property>
+	<effect_group>
+		<passive_effect name="ModSlots" operation="base_set" value="0"/>
+		<passive_effect name="DegradationMax" operation="base_set" value="1000,6000" tier="1,6"/>
+	</effect_group>
+</item>
+
+<item name="Blunt">
+	<property name="CustomIcon" value="apparelCigar"/> <property name="CustomIconTint" value="3b8945"/>
+	<property name="Tags" value="head"/>
+	<property name="DisplayType" value="clothingBlunt"/>
+	<property name="Material" value="Mplants"/>
+	<property name="Stacknumber" value="1"/>
+	<property name="DegradationBreaksAfter" value="false"/>
+	<property name="FuelValue" value="3"/>
+	<property name="EconomicValue" value="100"/>
+	<property name="HoldType" value="45"/>
+	<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Group" value="Clothing"/>
+	<property name="EquipSlot" value="Face"/>
+	<property class="UMA">
+		<property name="Mesh" value="gear_cigar"/>
+		<property name="Overlay0" value="gear_cigar"/>
+		<property name="Overlay0Tint" value="59,137,69"/>
+		<property name="Layer" value="1"/>
+		<property name="UISlot" value="Face"/>
+	</property>
+	<effect_group tiered="false">
+		<passive_effect name="ModSlots" operation="base_set" value="0"/>
+		<passive_effect name="PlayerExpGain" operation="perc_add" value=".17" tags="Harvesting"/><display_value name="dPlayerExpGain" value=".17"/>
+		<passive_effect name="CraftingTime" operation="perc_add" value="-.1"/><display_value name="dCraftingTime" value="-.1"/>
+		<passive_effect name="AttributeLevel" operation="base_add" value="-1" tags="attIntellect"/>
+		<passive_effect name="RunSpeed" operation="perc_add" value="-.15"/>
+		<passive_effect name="CarryCapacity" operation="base_add" value="-3"/>
+		<passive_effect name="WalkSpeed" operation="perc_subtract" value="0.15"/>
+		<passive_effect name="NoiseMultiplier" operation="perc_add" value=".2"/><display_value name="dNoiseMultiplier" value=".2"/>
+		<display_value name="dErrection" value="-1"/>
+		<display_value name="dWalkRunSpeed" value="-.15" tags="running, walking"/>
+	</effect_group>
+</item>
+
+
+</append>
+</configs>

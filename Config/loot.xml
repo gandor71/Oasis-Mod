@@ -1,0 +1,15 @@
+<OasisMod>
+
+
+	<append xpath="/lootcontainers/lootgroup[@name='rareTools']">
+				<item name="Mjolner" prob="0.35"/>
+	</append>
+
+	
+	<append xpath="/lootcontainers/lootgroup[@name='rareMedicine']">
+			<item name="Blunt"/>
+			<item name="BluntMod"/>
+		
+	</append>
+	
+</OasisMod>

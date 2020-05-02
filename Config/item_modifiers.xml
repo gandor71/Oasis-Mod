@@ -1,0 +1,136 @@
+<OasisMod>	
+
+<remove xpath="/item_modifiers/item_modifier[@name='modMeleeClubBurningShaft']" />
+<remove xpath="/item_modifiers/item_modifier[@name='modGunMeleeBlessedMetal']" />
+
+
+<append xpath="/item_modifiers">
+
+	
+	<item_modifier name="BluntMod" installable_tags="armor" modifier_tags="ammo" type="attachment">
+			<property name="CustomIcon" value="apparelCigar"/> <property name="CustomIconTint" value="3b8945"/>
+			<property name="Stacknumber" value="1"/> <property name="Group" value="Mods"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="DisplayType" value="clothingBlunt"/>
+
+		<effect_group tiered="false">
+			<passive_effect name="ModSlots" operation="base_set" value="0"/>
+			<passive_effect name="PlayerExpGain" operation="perc_add" value=".17" tags="Harvesting"/><display_value name="dPlayerExpGain" value=".17"/>
+			<passive_effect name="CraftingTime" operation="perc_add" value="-.1"/><display_value name="dCraftingTime" value="-.1"/>
+			<passive_effect name="AttributeLevel" operation="base_add" value="-1" tags="attIntellect"/>
+			<passive_effect name="RunSpeed" operation="perc_add" value="-.15"/>
+			<passive_effect name="CarryCapacity" operation="base_add" value="-3"/>
+			<passive_effect name="WalkSpeed" operation="perc_subtract" value="0.15"/>
+			<passive_effect name="NoiseMultiplier" operation="perc_add" value=".2"/><display_value name="dNoiseMultiplier" value=".2"/>
+			<display_value name="dWalkRunSpeed" value="-.15" tags="running, walking"/>
+			<display_value name="dErrection" value="-1"/>
+
+		</effect_group>
+	</item_modifier>
+	
+	
+		
+<item_modifier name="modGunMeleeBlessedMetal" installable_tags="weapon" modifier_tags="specialDamage" type="attachment">
+		<property name="UnlockedBy" value="modGunMeleeBlessedMetalSchematic"/>
+		<property name="Stacknumber" value="1"/> <property name="Group" value="Mods"/>
+		<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+		<!--Do double damage to evil / undead-->
+		<effect_group tiered="false">
+			<requirement name="EntityTagCompare" target="other" tags="zombie"/>
+			<passive_effect name="EntityDamage" operation="perc_add" value="5"/>
+		</effect_group>
+		<property name="PickupJournalEntry" value="augmentGunsTip"/>
+	</item_modifier>
+
+
+<item_modifier name="modMeleeClubBurningShaft" installable_tags="melee" modifier_tags="fire" type="attachment">
+		<property name="UnlockedBy" value="modMeleeClubBurningShaftSchematic"/>
+		<property name="Stacknumber" value="1"/> <property name="Group" value="Mods"/>
+		<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+
+		<item_property_overrides name="*">
+			<property name="LightValue" value="0.45"/>
+			<property name="LightSource" value="lightSource"/>
+			<property name="ActivateObject" value="lightSource"/>
+			<property name="AlwaysActive" value="true"/>
+			<property name="FlameEffect" value="ParticleEffects/p_torch_wall"/>
+		</item_property_overrides>
+
+		<item_property_overrides name="meleeClubBaseballBat">
+			<property name="FlameEffect" value="ItemModEffects/mod_bat_flamePrefab"/>
+		</item_property_overrides>
+
+		<item_property_overrides name="meleeClubIron">
+			<property name="FlameEffect" value="ItemModEffects/mod_club_flamePrefab"/>
+		</item_property_overrides>
+
+		<item_property_overrides name="meleeToolStoneAxe">
+			<property name="FlameEffect" value="ItemModEffects/mod_stone_axe_flamePrefab"/>
+		</item_property_overrides>
+
+		<item_property_overrides name="Mjolner">
+			<property name="FlameEffect" value="ItemModEffects/mod_stone_axe_flamePrefab"/>
+		</item_property_overrides>
+
+		<item_property_overrides name="meleeToolFireaxeIron">
+			<property name="FlameEffect" value="ItemModEffects/mod_fireaxe_flamePrefab"/>
+		</item_property_overrides>
+
+		<item_property_overrides name="meleeThrownSpearStone">
+			<property name="FlameEffect" value="ItemModEffects/mod_spear_flamePrefab"/>
+		</item_property_overrides>
+
+		<item_property_overrides name="meleeThrownSpearIron">
+			<property name="FlameEffect" value="ItemModEffects/mod_spear_iron_flamePrefab"/>
+		</item_property_overrides>
+
+		<item_property_overrides name="meleeThrownSpearSteel">
+			<property name="FlameEffect" value="ItemModEffects/mod_spear_steel_flamePrefab"/>
+		</item_property_overrides>
+
+		<effect_group tiered="false" name="SpecialEffects">
+			<passive_effect name="LightMultiplier" operation="base_add" value="0.28"/>
+			<passive_effect name="HypothermalResist" operation="base_add" value="4">
+				<requirement name="CVarCompare" cvar="_underwater" operation="LT" value="1"/>
+			</passive_effect>
+		</effect_group>
+
+		<effect_group name="light/douse torch always" tiered="false">
+
+			<triggered_effect trigger="onSelfWaterSurface" action="AddPart" part="Flames" prefab="property?FlameEffect" parentTransform="#HeldItemRoot"/>
+			<triggered_effect trigger="onSelfWaterSubmerge" action="RemovePart" part="Flames"/>
+			<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="Flames"/>
+			<triggered_effect trigger="onSelfDied" action="RemovePart" part="Flames"/>
+		</effect_group>
+
+		<effect_group name="light torch" tiered="false">
+			<requirement name="CVarCompare" cvar="_underwater" operation="LT" value="1"/>
+				<triggered_effect trigger="onSelfEquipStart" action="AddPart" part="Flames" prefab="property?FlameEffect" parentTransform="#HeldItemRoot"/>
+				<triggered_effect trigger="onSelfHoldingItemCreated" action="AddPart" part="Flames" prefab="property?FlameEffect" parentTransform="#HeldItemRoot"/>
+				<triggered_effect trigger="onSelfHoldingItemThrown" action="AddPart" part="Flames" prefab="property?FlameEffect" parentTransform="#HeldItemRoot"/>
+				<triggered_effect trigger="onSelfSwimStop" action="AddPart" part="Flames" prefab="property?FlameEffect" parentTransform="#HeldItemRoot"/>
+		</effect_group>
+
+		<effect_group name="new Fire Proc" tiered="false">
+			<requirement name="CVarCompare" cvar="_underwater" operation="LT" value=".93"/>
+			<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="30"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffBurningElement"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="10">
+					<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="0"/></triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="11">
+					<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="1"/></triggered_effect>
+		</effect_group>
+
+		<effect_group name="always refresh existing Fire Proc" tiered="false">
+			<requirement name="CVarCompare" cvar="_underwater" operation="LT" value=".93"/>
+			<requirement name="HasBuff" target="other" buff="buffBurningElement"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffBurningElement"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="10">
+					<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="0"/></triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="11">
+					<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="1"/></triggered_effect>
+		</effect_group>
+		<property name="PickupJournalEntry" value="augmentGunsTip"/>
+	</item_modifier>
+ </append>
+</OasisMod>
