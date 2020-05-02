@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xml>
+	<ModInfo>
+		<Name value="Oasis_Mods" />
+		<Description value="Mods for The Oasis Server" />
+		<Author value="Gandor" />
+		<Version value="2.7" />
+
+</ModInfo>
+</xml>

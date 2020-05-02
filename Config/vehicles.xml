@@ -1,0 +1,37 @@
+
+<configs>
+
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='motorTorqueMinQ']/@value">10000</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='motorTorqueMaxQ']/@value">30000</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='brakeTorque']/@value">30000</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='velocityMax']/@value">30, 120</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='upAngleMax']/@value">360</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='upForce']/@value">25</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='tiltAngleMax']/@value">30</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='tiltThreshold']/@value">3</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='tiltDampening']/@value">.6</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='tiltDampenThreshold']/@value">5</set>
+
+
+	<set xpath="/vehicles/vehicle[@name='vehicle4x4Truck']/property[@name='motorTorqueMinQ']/@value">6000</set>
+	<set xpath="/vehicles/vehicle[@name='vehicle4x4Truck']/property[@name='motorTorqueMaxQ']/@value">15000</set>
+	<set xpath="/vehicles/vehicle[@name='vehicle4x4Truck']/property[@name='brakeTorque']/@value">15000</set>
+	<set xpath="/vehicles/vehicle[@name='vehicle4x4Truck']/property[@name='velocityMax']/@value">20, 90</set>
+
+
+	<set xpath="/vehicles/vehicle[@name='vehicleGyrocopter']/property[@name='motorTorqueMinQ']/@value">4000</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleGyrocopter']/property[@name='motorTorqueMaxQ']/@value">1200</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleGyrocopter']/property[@name='brakeTorque']/@value">15000</set>
+	<set xpath="/vehicles/vehicle[@name='vehicleGyrocopter']/property[@name='velocityMax']/@value">20, 300</set>
+
+	<set xpath="/vehicles/vehicle[@name='vehicleGyrocopter']/property[@class='fuelTank']/property[@name='capacity']/@value">200</set>
+
+	
+
+
+<append xpath="/vehicles">
+
+	
+</append>
+
+</configs>

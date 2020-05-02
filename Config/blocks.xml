@@ -1,0 +1,22 @@
+<configs>
+
+
+	<set xpath="/blocks/block[@name='solarbank']/property[@name='OutputPerStack']/@value">300</set>
+	<set xpath="/blocks/block[@name='solarbank']/property[@name='MaxPower']/@value">1800</set>
+	<set xpath="/blocks/block[@name='officeChair01']/property[@name='Stacknumber']/@value">1000</set>
+	<set xpath="/blocks/block[@name='woodChair1']/property[@name='Stacknumber']/@value">1000</set>
+	<set xpath="/blocks/block[@name='oldChair1']/property[@name='Stacknumber']/@value">1000</set>
+	<set xpath="/blocks/block[@name='barracksChair']/property[@name='Stacknumber']/@value">1000</set>
+	<set xpath="/blocks/block[@name='mineCandyTin']/property[@name='Explosion.RadiusEntities']/@value">8</set>
+	<set xpath="/blocks/block[@name='mineHubcap']/property[@name='Explosion.RadiusEntities']/@value">8</set>
+	<set xpath="/blocks/block[@name='mineAirFilter']/property[@name='Explosion.RadiusEntities']/@value">8</set>
+
+
+
+
+<append xpath="/blocks">
+
+
+
+</append>
+</configs>

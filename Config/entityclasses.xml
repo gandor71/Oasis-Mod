@@ -1,0 +1,19 @@
+<configs>
+
+	<set xpath="/entity_classes/entity_class[@name='zombieDemolition']/property[@name='Explosion.RadiusBlocks']/@value">0</set>
+        <set xpath="/entity_classes/entity_class[@name='zombieDemolition']/property[@name='Explosion.RadiusEntities']/@value">6</set>
+        <set xpath="/entity_classes/entity_class[@name='zombieDemolition']/property[@name='Explosion.BlockDamage']/@value">0</set>
+        <set xpath="/entity_classes/entity_class[@name='zombieDemolition']/property[@name='Explosion.EntityDamage']/@value">800</set>
+        <set xpath="/entity_classes/entity_class[@name='zombieDemolition']/property[@name='Explosion.DamageBonus.earth']/@value">0</set>
+        <set xpath="/entity_classes/entity_class[@name='zombieDemolition']/property[@name='StompsSpikes']/@value">false</set>
+
+
+<!-- 
+
+zombieFatCopFeral
+zombieFatCopRadiated
+zombieFatCop
+
+-->
+
+</configs>

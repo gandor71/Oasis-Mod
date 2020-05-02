@@ -1,0 +1,6 @@
+<OasisMod>
+<!-- Value changes -->
+  <append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group/passive_effect[@level='1,5']/@tags">,solarCell</append>
+  <append xpath="/progression/perks/perk[@name='perkMiner69r']/effect_group/passive_effect[@level='1,5']/@tags">,Mjolner</append>
+
+</OasisMod>
