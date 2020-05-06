@@ -7,6 +7,8 @@
 
 -Craftable Solar cells<br>
 
+-Encreased power output for Solar pannels 
+
 -Demolisher BlockDamage disabled<br>
 
 -New Item Mjolner Axe tierd and lootable (this is a super Axe)<br>
